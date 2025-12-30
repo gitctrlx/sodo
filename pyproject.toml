@@ -1,0 +1,25 @@
+[build-system]
+requires = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "option"
+description = "Option Pricing Library"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dynamic = ["version"]
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+manifest-path = "option-py/Cargo.toml"
+module-name = "option._option"
+python-source = "option-py/python"
+include = [
+    { path = "rust-toolchain.toml", format = ["sdist", "wheel"] },
+    { path = "LICENSE-APACHE", format = "sdist" },
+    { path = "LICENSE-MIT", format = "sdist" },
+]

@@ -1,0 +1,16 @@
+[workspace]
+members = ["sodo"]
+# Only check / build main crates by default (check all with `--workspace`)
+default-members = ["sodo"]
+
+resolver = "3"
+
+[workspace.dependencies]
+pyo3 = "^0.27"
+serde = { version = "^1.0", features = ["derive"] }
+wasm-bindgen = "0.2"
+
+[profile.release]
+lto = true           # Enable Link Time Optimization to remove unused code
+codegen-units = 1    # Maximize optimization at the cost of slower compilation
+strip = true         # Fully strip debug symbols; debugging in production will be difficult

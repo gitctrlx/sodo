@@ -1,12 +1,17 @@
 [package]
 name = "sodo"
-version = "0.2.2"
+version = "0.2.3"
 description = "Sudoku in Rust"
 license = "MIT OR Apache-2.0"
 readme = "../README.md"
 edition = "2024"
 
+[[bin]]
+name = "sodo"
+path = "bin/main.rs"
+
 [dependencies]
+clap = { workspace = true }
 rand = { workspace = true }
 serde = { workspace = true, optional = true }
 

@@ -111,7 +111,9 @@ fn apply_box(sudoku: &mut Sudoku, br: usize, bc: usize) -> bool {
     for val in 1..=sudoku.size as u8 {
         let cells: Vec<_> = (sr..sr + bs)
             .flat_map(|r| (sc..sc + bs).map(move |c| (r, c)))
-            .filter(|&(r, c)| sudoku.grid[r][c].is_empty() && sudoku.candidates(r, c).contains(&val))
+            .filter(|&(r, c)| {
+                sudoku.grid[r][c].is_empty() && sudoku.candidates(r, c).contains(&val)
+            })
             .collect();
 
         if cells.len() == 1 {

@@ -1,6 +1,6 @@
-use crate::strategy::{all as all_strategies, Strategy};
 use crate::sodo::{Cell, Sudoku};
-use rand::{rng, seq::SliceRandom, Rng};
+use crate::strategy::{Strategy, all as all_strategies};
+use rand::{Rng, rng, seq::SliceRandom};
 use std::collections::HashMap;
 
 /// Statistics collected during solving.
@@ -105,7 +105,10 @@ impl Solver {
 
                 if strategy.apply(sudoku) {
                     stats.cells_filled += before - sudoku.empty_count();
-                    *stats.strategies_used.entry(strategy.name().into()).or_default() += 1;
+                    *stats
+                        .strategies_used
+                        .entry(strategy.name().into())
+                        .or_default() += 1;
                     progress = true;
 
                     if !sudoku.is_valid() {

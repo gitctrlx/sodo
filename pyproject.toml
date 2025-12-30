@@ -3,8 +3,8 @@ requires = ["maturin>=1.7,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "option"
-description = "Option Pricing Library"
+name = "sodo"
+description = "Sudoku Solver"
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Rust",
@@ -15,9 +15,9 @@ dynamic = ["version"]
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
-manifest-path = "option-py/Cargo.toml"
-module-name = "option._option"
-python-source = "option-py/python"
+manifest-path = "sodo/Cargo.toml"
+module-name = "sodo._sodo"
+python-source = "sodo/python"
 include = [
     { path = "rust-toolchain.toml", format = ["sdist", "wheel"] },
     { path = "LICENSE-APACHE", format = "sdist" },

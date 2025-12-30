@@ -1,10 +1,10 @@
+mod sodo;
 mod solver;
 mod strategy;
-mod sodo;
 
-pub use solver::{Difficulty, Solver, Stats};
-pub use strategy::{all as all_strategies, Strategy};
 pub use sodo::{Cell, Sudoku};
+pub use solver::{Difficulty, Solver, Stats};
+pub use strategy::{Strategy, all as all_strategies};
 
 use std::{fs, process};
 

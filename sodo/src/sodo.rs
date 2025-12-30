@@ -95,7 +95,11 @@ impl Sudoku {
             return Err(format!("Value {val} exceeds max {}", self.size));
         }
 
-        self.grid[row][col] = if val == 0 { Cell::Empty } else { Cell::Filled(val) };
+        self.grid[row][col] = if val == 0 {
+            Cell::Empty
+        } else {
+            Cell::Filled(val)
+        };
         Ok(())
     }
 

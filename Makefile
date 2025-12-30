@@ -74,14 +74,14 @@ udeps-check:
 .PHONY: wasm-build
 wasm-build:
 	@echo "Building WASM package..."
-	(cd option-wasm && wasm-pack build --target web && wasm-pack pack pkg)
+	(cd sodo-wasm && wasm-pack build --target web && wasm-pack pack pkg)
 
 # Publish the wasm package to npm
 # Note: You must be logged in to npm for this to work (`npm login`)
 .PHONY: wasm-publish
 wasm-publish: wasm-build
 	@echo "Publishing WASM package to npm..."
-	(cd option-wasm/pkg && npm pkg fix && npm pkg set name="@qntx/option" && npm publish --access public)
+	(cd sodo-wasm/pkg && npm pkg fix && npm pkg set name="@pyroth/sodo" && npm publish --access public)
 
 # Convenience target to build and publish wasm
 .PHONY: wasm

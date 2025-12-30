@@ -2,5 +2,20 @@
 name = "sodo-wasm"
 version = "0.1.0"
 edition = "2024"
+authors = ["ΣX <gitctrlx@gmail.com>"]
+license = "MIT OR Apache-2.0"
+description = "WebAssembly bindings for sodo Sudoku library"
+homepage = "https://github.com/gitctrlx/sodo"
+repository = "https://github.com/gitctrlx/sodo"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
+sodo = { workspace = true }
+wasm-bindgen = { workspace = true }
+js-sys = { workspace = true }
+getrandom = { version = "0.3", features = ["wasm_js"] }
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false

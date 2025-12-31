@@ -5,6 +5,8 @@ description = "Sudoku in Rust"
 license = "MIT OR Apache-2.0"
 readme = "../README.md"
 edition = "2024"
+homepage = "https://github.com/pyroth/sodo"
+repository = "https://github.com/pyroth/sodo"
 
 [[bin]]
 name = "sodo"
